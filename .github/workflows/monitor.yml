@@ -1,0 +1,27 @@
+name: Monitor de Ingressos FeverUp
+
+on:
+  schedule:
+    # Executa de hora em hora (no minuto 0 de cada hora)
+    - cron: '0 * * * *'
+  workflow_dispatch: # Permite rodar manualmente clicando em um botão
+
+jobs:
+  check-tickets:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Instalar biblioteca requests
+        run: pip install requests
+
+      - name: Executar Script
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python monitor.py  
