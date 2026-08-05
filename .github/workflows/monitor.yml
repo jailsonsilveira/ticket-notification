@@ -9,6 +9,7 @@ on:
 jobs:
   check-tickets:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Baixar código do repositório
         uses: actions/checkout@v4
@@ -27,6 +28,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Executar Script
+        timeout-minutes: 1
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
         run: python monitor.py
