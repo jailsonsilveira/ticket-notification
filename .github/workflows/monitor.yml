@@ -2,8 +2,8 @@ name: Monitor de Ingressos FeverUp
 
 on:
   schedule:
-    # Executa de hora em hora (no minuto 0 de cada hora)
-    - cron: '0 * * * *'
+    # Executa de hora em hora (no minuto 8 de cada hora)
+    - cron: '8 * * * *'
   workflow_dispatch: # Permite rodar manualmente clicando em um botão
 
 jobs:
