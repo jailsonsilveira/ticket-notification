@@ -3,7 +3,7 @@ name: Monitor de Ingressos FeverUp
 on:
   schedule:
     # Roda no minuto 17 de cada hora
-    - cron: '30 * * * *'
+    - cron: '53 * * * *'
   workflow_dispatch:
 
 jobs:
