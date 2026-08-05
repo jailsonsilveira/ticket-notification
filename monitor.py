@@ -42,9 +42,20 @@ def monitorar():
         
         if "calendar__date--soldout" not in classe:
             print("Ingressos disponíveis para o dia 05/09!")
-            notificar_discord(f"🚨 **INGRESSOS DISPONÍVEIS!**\nCorra para garantir o seu: {URL_EVENTO}")
+            notificar_discord(
+                "@everyone\n"
+                "🚨🚨🚨 **INGRESSOS LIBERADOS PARA O DIA 05/09/2026!** 🚨🚨🚨\n\n"
+                "🟢 **STATUS:** `DISPONÍVEL`\n"
+                f"⚡ **CORRA PARA COMPRAR AGORA:**\n{URL_EVENTO}"
+            )
         else:
             print("Ingresso para o dia 5 ainda não disponível, aguarde mais um pouco")
+            notificar_discord(
+                "ℹ️ **[Monitor FeverUp - Checagem Horária]**\n"
+                "📅 **Data:** 05/09/2026\n"
+                "🔴 **Status:** `Esgotado`\n"
+                "_Os ingressos permanecem indisponíveis no momento._"
+            )
             
         browser.close()
 
